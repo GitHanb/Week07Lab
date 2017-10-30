@@ -5,7 +5,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Manage Users</title>
-        <link rel="stylesheet" href="<c:url value='styles/notes.css' />" />
     </head>
     <body>
         <h1>Manage Notes</h1>
@@ -16,7 +15,7 @@
                 <th>Note ID</th>
                 <th>Date Created</th>
                 <th>Contents</th>
-                
+
             </tr>
             <c:forEach var="note" items="${notes}">
                 <tr>

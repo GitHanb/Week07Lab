@@ -3,7 +3,6 @@ CREATE DATABASE NotesDB;
 
 USE NotesDB;
 
-
 CREATE TABLE Notes( 
     noteId INT NOT NULL AUTO_INCREMENT,
     dateCreated DATETIME NOT NULL,

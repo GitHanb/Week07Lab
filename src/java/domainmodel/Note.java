@@ -3,32 +3,31 @@ package domainmodel;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Note implements Serializable {
-    
+public class Note implements Serializable
+{
+
     private int noteId;
     private java.util.Date dateCreated;
     private String contents;
-    
+
     public Note()
     {
-        
+
     }
-    
-    
 
     public Note(String contents)
     {
         this.dateCreated = new Date();
         this.contents = contents;
     }
-    
+
     public Note(int noteId, String contents)
     {
         this.noteId = noteId;
         this.dateCreated = new Date();
         this.contents = contents;
     }
-    
+
     public Note(int noteId, java.util.Date dateCreated, String contents)
     {
         this.noteId = noteId;
@@ -66,5 +65,4 @@ public class Note implements Serializable {
         this.contents = contents;
     }
 
-    
 }
