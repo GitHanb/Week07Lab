@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Manage Users</title>
+        <title>Manage Notes</title>
     </head>
     <body>
         <h1>Manage Notes</h1>
@@ -29,6 +29,7 @@
                             <input type="hidden" name="selectedNoteId" value="${note.noteId}">
                         </form>
                     </td>
+                    
                     <td>
                         <form action="notes" method="get">
                             <input type="submit" value="Edit">

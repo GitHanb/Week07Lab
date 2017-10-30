@@ -6,8 +6,7 @@ import java.util.List;
 
 public class NoteService
 {
-
-    private NoteDB noteDB;
+    private final NoteDB noteDB;
 
     public NoteService()
     {
