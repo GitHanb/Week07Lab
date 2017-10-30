@@ -2,7 +2,6 @@ package dataaccess;
 
 import domainmodel.Note;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -111,24 +110,17 @@ public class NoteDB
         }
     }
 
-    /**
-     * Get a single user by their username.
-     *
-     * @param username The unique username.
-     * @return A User object if found, null otherwise.
-     * @throws NotesDBException
-     */
     public Note getNote(int noteId) throws NotesDBException
     {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
-        String selectSQL = "SELECT * FROM Notes WHERE noteId = ?";
+        String preparedQuery = "SELECT * FROM Notes WHERE noteId = ?";
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         try
         {
-            ps = connection.prepareStatement(selectSQL);
+            ps = connection.prepareStatement(preparedQuery);
             ps.setInt(1, noteId);
             rs = ps.executeQuery();
 

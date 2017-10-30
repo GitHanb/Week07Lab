@@ -18,14 +18,14 @@ public class NoteServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        NoteService us = new NoteService();
+        NoteService ns = new NoteService();
         String action = request.getParameter("action");
         if (action != null && action.equals("view"))
         {
             String selectedNoteId = request.getParameter("selectedNoteId");
             try
             {
-                Note note = us.get(Integer.parseInt(selectedNoteId));
+                Note note = ns.get(Integer.parseInt(selectedNoteId));
                 request.setAttribute("selectedNote", note);
             } catch (Exception ex)
             {
@@ -36,7 +36,7 @@ public class NoteServlet extends HttpServlet
         ArrayList<Note> notes = null;
         try
         {
-            notes = (ArrayList<Note>) us.getAll();
+            notes = (ArrayList<Note>) ns.getAll();
         } catch (Exception ex)
         {
             Logger.getLogger(NoteServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -53,22 +53,22 @@ public class NoteServlet extends HttpServlet
         String contents = request.getParameter("contents");
         String action = request.getParameter("action");
 
-        NoteService us = new NoteService();
+        NoteService ns = new NoteService();
 
         try
         {
             if (action.equals("delete"))
             {
                 String selectedNoteId = request.getParameter("selectedNoteId");
-                us.delete(Long.parseLong(selectedNoteId));
+                ns.delete(Long.parseLong(selectedNoteId));
             } else if (action.equals("edit"))
             {
                 Note note = new Note(Integer.parseInt(noteId), contents);
 
-                us.update(note.getNoteId(), note.getContents());
+                ns.update(note.getNoteId(), note.getContents());
             } else if (action.equals("add"))
             {
-                us.insert(contents);
+                ns.insert(contents);
             }
         } catch (Exception ex)
         {
@@ -78,7 +78,7 @@ public class NoteServlet extends HttpServlet
         ArrayList<Note> notes = null;
         try
         {
-            notes = (ArrayList<Note>) us.getAll();
+            notes = (ArrayList<Note>) ns.getAll();
         } catch (Exception ex)
         {
             Logger.getLogger(NoteServlet.class.getName()).log(Level.SEVERE, null, ex);
